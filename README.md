@@ -1,2 +1,35 @@
 # docker-lab
 Repo para la realización del laboratorio de Docker del curso INTRODUCCIÓN A DEVOPS. SEGUNDA EDICIÓN. (262922GE160)
+
+## Ejercicio 1
+1. Lo primero que hago es abrir "Docker Desktop" y en el apartado "Docker Hub" busco la imagen "ubuntu" para poder crearme un contenedor en base a esa imagen. Elijo la imagen mas descargada, la primera que me sale. En la parte inferior derecha de "Docker Desktop" pincho en el apartado "terminal". 
+2. Ejecuto el comando:
+   docker run -it ubuntu /bin/bash
+   captura 1
+   
+4. Instalo "cURL" dentro del contenedor (ya que la imagen base no lo trae), ejecutando el comando:
+   apt-get update && apt-get install -y curl
+   captura 2
+6. Y finalmente compruebo que se ha instalado correctamente ejecutando el comando:
+   curl --version
+   captura 3
+
+### Pregunta
+¿Con qué comando podrías guardar los cambios del contenedor como una nueva imagen?
+Para guardar los cambios de este contenedor como una nueva imagen, tengo que salir del contenedor escribiendo exit y ejecutar el siguiente comando en la terminal (fuera del contenedor):
+docker commit 1ac289513036 ubuntu-con-curl
+en la que el código que hay después de la palabra "commit" sería el ID del contenedor y a continuaciñón iriía el nombre de la nueva imagen.
+
+## Ejercicio 2
+1. Abro "Visual Studio Code" y dentro del directorio de trabajo me creo un "Dockerfile".
+2. Creo la nueva imagen con el comando:
+  docker build -t mi-ubuntu-curl .
+  captura 4
+4. Compruebo que funciona:
+   captura 5
+
+## Ejercicio 3
+
+   
+
+
