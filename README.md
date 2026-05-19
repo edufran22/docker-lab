@@ -40,9 +40,27 @@ captura 6
 1. Primero, crearemos un volumen llamado mi_volumen_ejercicio3 y arrancaremos el contenedor:
    docker volume create mi_volumen_ejercicio3
 
-2. Ejecutamos el contenedor basado en postgres:17 haciedno uso de "--detach" (en segundo plano)
+   captura 7
+
+2. Ejecutamos el contenedor basado en postgres:17 haciedno uso de "--detach" (en segundo plano) y añadiendo una contraseña con el flag "-e" (lo exige la imagen oficial de postgres).
    docker run --name mi_postgres_ejercicio3 -e POSTGRES_PASSWORD=mi_clave -v mi_volumen_ejercicio3:/var/lib/postgresql/data --detach postgres:17
 
-   
+   captura 8
 
+3. Nos conectamos a la BBDD y creamos la tabla, para entrar a la terminal de PostgreSQL (psql) dentro del contenedor que está corriendo, uso docker exec:
+   captura 9
+   
+4. Una vez dentro de la consola de Postgres (se ve el prompt postgres=#). Ejecuto los comandos SQL del ejercicio:
+
+   captura 10
+
+5. Ahora detenemos y destruimos el contenedor:
+   captura 11
+
+6. Vamos a crear un contenedor completamente nuevo (le llamaremos mi_nuevo_postgres), pero le conectaremos el volumen mi_volumen_ejercicio3 que guardó los datos del contenedor anterior:      
+   captura 12
+7. Ahora vamos a comprobar que los datos siguen existiendo, me conecto al nuevo contenedor usando psql para verificar si la tabla y el registro sobrevivieron:
+   captura 13
+
+## Ejercicio 4 - Bind mounts 
 
