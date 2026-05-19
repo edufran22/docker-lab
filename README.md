@@ -63,4 +63,14 @@ captura 6
    captura 13
 
 ## Ejercicio 4 - Bind mounts 
+1. Creo el archivo ".html" en mi máquina con el contenido: <h1>Hola Docker</h1>
+2. Ejecuto el contenedor de Nginx con el Bind Mount abriendo la terminal dentro de la misma carpeta donde guardé mi index.html y ejecutando el siguiente comando:
+   captura 14
+   Con la opción "-v" estoy reemplazando el archivo por defecto de Nginx por mi index.html local.
+3. Abro mi navegador web e ingreso la dirección http://localhost:8080 y veo una pantalla blanca con el título "Hola Docker".
+   captura 15
 
+#### Pregunta
+¿Qué ocurre si modificas el archivo index.html en tu máquina?     
+Los cambios se reflejan de forma inmediata y en tiempo real dentro del contenedor porque con los bind mounts, Docker no hace una copia del archivo; crea un "enlace directo" (un acceso directo real). El contenedor está leyendo el archivo directamente desde el disco duro de tu propia máquina
+   
