@@ -73,4 +73,18 @@ captura 6
 #### Pregunta
 ¿Qué ocurre si modificas el archivo index.html en tu máquina?     
 Los cambios se reflejan de forma inmediata dentro del contenedor porque con los bind mounts, Docker no hace una copia del archivo; crea un "enlace directo" (un acceso directo real). El contenedor está leyendo el archivo directamente desde el disco duro de mi propia máquina
+
+## Ejercicio 6 - Creando redes privadas
+1. Primero creo la red privada, una red a la que llamo my-net:
+   captura 16
+
+2. Ahora arranco los dos contenedores Ubuntu. Para que los contenedores de Ubuntu no se apaguen inmediatamente (ya que no tienen ningún servicio ejecutándose de fondo), debemos arrancarlos en modo interactivo y en segundo plano usando los flags -dit:
+   captura 17
+3. Instalo ping en el primer contenedor. Por defecto, las imágenes oficiales de Ubuntu en Docker vienen súper recortadas para pesar lo mínimo posible, así que no traen la herramienta ping. Vamos a entrar al primer contenedor para instalarla:
+   captura 18
+4. Ahora que ubuntu1 ya tiene ping, vamos a pedirle que intente comunicarse con ubuntu2 usando su nombre:
+   captura 19   
+#### Pregunta
+¿Los contenedores pueden comunicarse entre sí?
+Sí, se comunican perfectamente. Al ejecutar el comando ping ubuntu2, verás que ubuntu1 recibe respuesta de inmediato. Al crear una red privada personalizada (my-net), Docker activa automáticamente un servidor DNS interno. Este servidor mapea el nombre de cada contenedor con su IP privada de forma dinámica
    
