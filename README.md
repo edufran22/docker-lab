@@ -87,4 +87,21 @@ Los cambios se reflejan de forma inmediata dentro del contenedor porque con los 
 #### Pregunta
 ¿Los contenedores pueden comunicarse entre sí?
 Sí, se comunican perfectamente. Al ejecutar el comando ping ubuntu2, verás que ubuntu1 recibe respuesta de inmediato. Al crear una red privada personalizada (my-net), Docker activa automáticamente un servidor DNS interno. Este servidor mapea el nombre de cada contenedor con su IP privada de forma dinámica
-   
+
+## Ejercicio 9 - Docker Compose --- Compartiendo volúmenes
+1. Creo el archivo docker-compose.yml con el siguiente código:
+   captura 20
+Explicación:
+ - volumes: (al final del archivo): Declaramos un volumen compartido llamado mi_volumen_compartido. Docker se encargará de crearlo automáticamente en el sistema.
+ - Servicio writer:
+   - Usa una imagen muy ligera (alpine).
+   - Monta el volumen en la ruta /app/logs (con acceso total de lectura y escritura por defecto).
+   - command: Ejecuta un bucle infinito que cada 30 segundos escribe la fecha y hora actual (date) dentro del archivo timestamp.txt.
+- Servicio reader:
+   - Usa la misma imagen ligera (alpine).
+   - Monta el mismo volumen, pero fíjate en el final de la ruta: :ro (significa Read-Only o Solo Lectura). Si este contenedor intentara modificar el archivo, Docker se lo denegaría.
+   - command: Espera un momento a que el archivo exista (para evitar errores de arranque) y luego ejecuta un tail -f, que se queda "escuchando" el archivo y muestra en la consola todo lo que se vaya escribiendo en él en tiempo real.
+   - depends_on: Le dice a Docker que arranque primero el contenedor writer.
+ 
+2. Ahora ejecuto el archivo docker-compose.yml y compruebo que funciona:
+   captura 21
