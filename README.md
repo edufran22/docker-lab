@@ -36,6 +36,13 @@ captura 6
 
 ## Ejercicio 3 - Volúmenes persistentes
 
+### Paso 1 - Crear el volumen y ejecutar el contenedor
+1. Primero, crearemos un volumen llamado mi_volumen_ejercicio3 y arrancaremos el contenedor:
+   docker volume create mi_volumen_ejercicio3
+
+2. Ejecutamos el contenedor basado en postgres:17 haciedno uso de "--detach" (en segundo plano)
+   docker run --name mi_postgres_ejercicio3 -e POSTGRES_PASSWORD=mi_clave -v mi_volumen_ejercicio3:/var/lib/postgresql/data --detach postgres:17
+
    
 
 
