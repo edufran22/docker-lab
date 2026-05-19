@@ -72,5 +72,5 @@ captura 6
 
 #### Pregunta
 ¿Qué ocurre si modificas el archivo index.html en tu máquina?     
-Los cambios se reflejan de forma inmediata y en tiempo real dentro del contenedor porque con los bind mounts, Docker no hace una copia del archivo; crea un "enlace directo" (un acceso directo real). El contenedor está leyendo el archivo directamente desde el disco duro de tu propia máquina
+Los cambios se reflejan de forma inmediata dentro del contenedor porque con los bind mounts, Docker no hace una copia del archivo; crea un "enlace directo" (un acceso directo real). El contenedor está leyendo el archivo directamente desde el disco duro de mi propia máquina
    
