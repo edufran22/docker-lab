@@ -6,7 +6,7 @@ Repo para la realización del laboratorio de Docker del curso INTRODUCCIÓN A DE
 1. Lo primero que hago es abrir "Docker Desktop" y en el apartado "Docker Hub" busco la imagen "ubuntu" para poder crearme un contenedor en base a esa imagen. Elijo la imagen mas descargada, la primera que me sale. En la parte inferior derecha de "Docker Desktop" pincho en el apartado "terminal". 
 2. Ejecuto el comando:
    docker run -it ubuntu /bin/bash
-   ![captura 1](./imagenes/captura 1.png)
+   ![captura 1](/imagenes/captura 1.png)
    
 4. Instalo "cURL" dentro del contenedor (ya que la imagen base no lo trae), ejecutando el comando:
    apt-get update && apt-get install -y curl
